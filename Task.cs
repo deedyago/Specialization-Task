@@ -1,9 +1,9 @@
 ﻿// Ввод данных пользователем
-Console.WriteLine("Input your stroke array by elements separeted by spaces (ex. hello world)");
-string strarray = Console.ReadLine();
+Console.WriteLine("\nInput your stroke array by elements separeted by spaces (ex. hello world)");
+string strarray = Console.ReadLine()!;
 string[] array = strarray.Split(' ');
 
-Console.WriteLine("Input number of characters of an element to find: ");
+Console.WriteLine("\nInput number of characters of an element to find: ");
 int number = int.Parse(Console.ReadLine()!);
 
 // Считаем размер выходного массива - делаю это, чтобы красивый вывод получился
@@ -23,11 +23,12 @@ int FindSize(string[] yourarray)
     }
     return count;
 }
-string[] newarray = new string[FindSize(array)]; // Создаем новый массив
+ // Создаем новый массив
 
 // Находим нужные нам элементы
-void FindElements(string[] yourarray)
+string[] FindElements(string[] yourarray)
 {
+    string[] newarray = new string[FindSize(array)];
     int j = 0;
     for (int i = 0; i < yourarray.Length; i++)
     {
@@ -38,8 +39,9 @@ void FindElements(string[] yourarray)
             j++;
         }
     }
+    return newarray;
 }
-FindElements(array);
+string[] newarray = FindElements(array);
 
 Console.WriteLine();
 
